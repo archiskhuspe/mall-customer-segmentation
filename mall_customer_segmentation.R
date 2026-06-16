@@ -1,5 +1,5 @@
 #1.0
-customer_data=read.csv("Dataset.csv")
+customer_data=read.csv("mall_customers.csv")
 str(customer_data)
 
 names(customer_data)
@@ -66,11 +66,6 @@ plot(density(customer_data$Annual.Income..k..),
 polygon(density(customer_data$Annual.Income..k..),
         col="#ccff66")
 
-boxplot(customer_data$Spending.Score..1.100.,
-        horizontal=TRUE,
-        col="#990000",
-        main="BoxPlot for Descriptive Analysis of Spending Score")
-
 #5.0
 summary(customer_data$Spending.Score..1.100.)
 
@@ -109,9 +104,8 @@ plot(k.values, iss_values,
      ylab="Total intra-clusters sum of squares")
 
 #7.0
-library(cluster) 
-library(gridExtra)
-library(grid)
+library(cluster)
+library(ggplot2)
 
 
 k2<-kmeans(customer_data[,3:5],2,iter.max=100,nstart=50,algorithm="Lloyd")
